@@ -95,10 +95,7 @@ const regUrl = getRegistrationUrl();
     <!-- Bottom Copyright -->
     <div class="site-footer__bottom">
       <p class="site-footer__copy">
-        &copy; {currentYear} {school.name}. Seluruh hak cipta dilindungi undang-undang.
-      </p>
-      <p class="site-footer__region">
-        Lembang, Kabupaten Bandung Barat, Jawa Barat.
+        &copy; {currentYear} {school.name}.
       </p>
     </div>
   </Container>
@@ -198,12 +195,20 @@ const regUrl = getRegistrationUrl();
     font-weight: 600;
   }
 
+  .site-footer p {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
   .site-footer__address {
     font-style: normal;
     font-size: var(--text-sm);
-    color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
     margin-bottom: 1.25rem;
+  }
+
+  .site-footer__address-line {
+    color: rgba(255, 255, 255, 0.88) !important;
+    line-height: 1.65;
   }
 
   .site-footer__address strong {
@@ -217,26 +222,27 @@ const regUrl = getRegistrationUrl();
     font-size: var(--text-sm);
   }
 
+  .site-footer__contacts p {
+    color: rgba(255, 255, 255, 0.88) !important;
+  }
+
   .site-footer__contact-label {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.75);
     margin-right: 0.35rem;
   }
 
   .site-footer__bottom {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    font-size: var(--text-xs);
-    color: rgba(255, 255, 255, 0.6);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
   }
 
-  @media (min-width: 640px) {
-    .site-footer__bottom {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    }
+  .site-footer__copy {
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.85) !important;
+    margin: 0;
   }
 </style>

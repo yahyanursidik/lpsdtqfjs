@@ -3,7 +3,7 @@ export const school = {
   shortName: 'Fajar Sunnah',
   fullName: "Sekolah Dasar Tahfidzul Qur'an Fajar Sunnah",
   academicYear: '2027/2028',
-  tagline: "Menghafal Al-Qur'an, Membangun Masa Depan",
+  tagline: 'Penghafal Al Quran Meraih Masa Depan',
   subtagline: "Sekolah dasar Islam di Lembang yang mengintegrasikan pembelajaran Al-Qur'an, pendidikan keagamaan, kurikulum umum, serta pengembangan minat dan bakat anak.",
 
   contact: {
