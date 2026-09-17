@@ -1,14 +1,13 @@
 ---
 import { getRegistrationUrl, getWhatsAppUrl, school } from '../../data/school';
 import Button from '../ui/Button.astro';
-import Container from '../ui/Container.astro';
 
 const regUrl = getRegistrationUrl();
 const waUrl = getWhatsAppUrl();
 ---
 
 <section class="final-cta" aria-labelledby="cta-title">
-  <Container narrow class="final-cta__container">
+  <div class="container-narrow final-cta__container">
     <span class="final-cta__eyebrow">Langkah Pendaftaran PPDB</span>
     <h2 id="cta-title" class="final-cta__title">
       Siap Mengenal Fajar Sunnah Lebih Dekat?
@@ -34,7 +33,7 @@ const waUrl = getWhatsAppUrl();
       <span>•</span>
       <span>WhatsApp: {school.contact.whatsappDisplay}</span>
     </div>
-  </Container>
+  </div>
 </section>
 
 <style>

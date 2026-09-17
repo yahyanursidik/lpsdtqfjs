@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 import logoImg from '../../assets/logo/logo-fajar-sunnah.png';
 import { getRegistrationUrl, getWhatsAppUrl, school } from '../../data/school';
 import Button from '../ui/Button.astro';
-import Container from '../ui/Container.astro';
 
 const regUrl = getRegistrationUrl();
 const waUrl = getWhatsAppUrl();
@@ -16,7 +15,7 @@ const proofPoints = [
 ---
 
 <section class="hero" id="beranda" aria-labelledby="hero-title">
-  <Container class="hero__container">
+  <div class="container hero__container">
     <div class="hero__content">
       <!-- Plain textual context label, NO pill badge / status dot per anti-slop rules -->
       <span class="hero__eyebrow">PPDB SDTQ FAJAR SUNNAH {school.academicYear}</span>
@@ -82,7 +81,7 @@ const proofPoints = [
         </div>
       </div>
     </div>
-  </Container>
+  </div>
 </section>
 
 <style>
