@@ -9,7 +9,7 @@ export const fees = {
     amount: 300000,
     label: 'Biaya Formulir Pendaftaran',
     promo: 'Diskon 50% untuk 10 pendaftar pertama',
-    note: 'Mencakup berkas administrasi dan sesi observasi calon santri.',
+    note: 'Mencakup berkas administrasi dan sesi observasi calon murid.',
   },
   buildingAndDevelopment: {
     amount: 5900000,
@@ -30,7 +30,7 @@ export const fees = {
     addon: {
       label: 'Tambahan Kelengkapan Seragam Akhwat',
       amount: 70000,
-      note: 'Tambahan jilbab/kelengkapan syar\'i santri putri',
+      note: 'Tambahan jilbab/kelengkapan syar\'i murid putri',
     },
   },
 } as const;

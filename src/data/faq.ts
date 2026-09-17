@@ -7,15 +7,15 @@ export const faqs: readonly FAQItem[] = [
   },
   {
     question: 'Apakah SDTQ Fajar Sunnah menerima murid pindahan?',
-    answer: 'Ya. SDTQ Fajar Sunnah membuka kesempatan pendaftaran bagi calon murid baru jenjang kelas 1 maupun santri pindahan (mutasi) dari sekolah lain, selama kuota kelas dan hasil pemetaan akademik/tahfidz memenuhi kriteria.',
+    answer: 'Ya. SDTQ Fajar Sunnah membuka kesempatan pendaftaran bagi calon murid baru jenjang kelas 1 maupun murid pindahan (mutasi) dari sekolah lain, selama kuota kelas dan hasil pemetaan akademik/tahfidz memenuhi kriteria.',
   },
   {
     question: 'Bagaimana perpaduan kurikulum di SDTQ Fajar Sunnah?',
     answer: 'Kami mengintegrasikan tiga pilar kurikulum: Kurikulum Al-Qur\'an, Kurikulum Keagamaan (Aqidah, Akhlak, Fiqih, Sejarah Islam, Bahasa Arab, Hadits), dan Kurikulum Pendidikan Nasional (Matematika, IPA, Bahasa Indonesia, Bahasa Inggris, PJOK, dsb). Porsi keagamaan dirancang lebih dominan dan lulusan berhak menerima ijazah resmi negara serta ijazah sekolah.',
   },
   {
-    question: 'Berapa rasio santri dalam setiap kelompok tahfidz?',
-    answer: 'Setiap kelompok halaqah tahfidz memiliki rasio eksklusif 1 guru pengampu untuk 7 santri (1 : 7). Pendampingan intensif ini memastikan guru dapat membimbing setiap santri secara personal sesuai kecepatan belajarnya.',
+    question: 'Berapa rasio murid dalam setiap kelompok tahfidz?',
+    answer: 'Setiap kelompok halaqah tahfidz memiliki rasio eksklusif 1 guru pengampu untuk 7 murid (1 : 7). Pendampingan intensif ini memastikan guru dapat membimbing setiap murid secara personal sesuai kecepatan belajarnya.',
   },
   {
     question: 'Apakah biaya uang gedung dan pengembangan sarana dapat dicicil?',
@@ -30,7 +30,7 @@ export const faqs: readonly FAQItem[] = [
     answer: 'Orang tua dapat menekan tombol "Daftar SPMB" atau menghubungi nomor WhatsApp panitia untuk mendapatkan formulir pendaftaran, mengisi data calon murid dan orang tua, melengkapi berkas (Akta, KK, KTP, foto), kemudian mengikuti jadwal observasi kesiapan anak.',
   },
   {
-    question: 'Bagaimana cara orang tua memantau perkembangan hafalan santri?',
-    answer: 'Capaian setoran Al-Qur\'an harian, absensi, serta nilai pembelajaran berkala dicatat secara terstruktur dan dapat diakses/dikonsultasikan secara berkala oleh wali santri, sehingga orang tua selalu mengetahui perkembangan anak secara realtime.',
+    question: 'Bagaimana cara orang tua memantau perkembangan hafalan murid?',
+    answer: 'Capaian setoran Al-Qur\'an harian, absensi, serta nilai pembelajaran berkala dicatat secara terstruktur dan dapat diakses/dikonsultasikan secara berkala oleh orang tua / wali murid, sehingga selalu mengetahui perkembangan anak secara realtime.',
   },
 ] as const;

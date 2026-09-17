@@ -14,7 +14,7 @@ export const facilities: readonly FacilityItem[] = [
     detail: 'Ruang belajar berhawa sejuk khas Lembang dengan pencahayaan alami dan sirkulasi udara bersih yang mendukung konsentrasi hafalan.',
   },
   {
-    title: 'Creativity Area & Mading Santri',
+    title: 'Creativity Area & Mading Karya Murid',
     detail: 'Area khusus untuk menumbuhkan minat literasi, publikasi kaligrafi, dan hasil karya seni anak secara berkala.',
   },
   {

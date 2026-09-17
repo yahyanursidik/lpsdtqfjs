@@ -15,5 +15,5 @@ export const quickFacts = [
   { label: 'Target Tahfidz', value: '3–6 Juz', desc: 'Selama 6 tahun pendidikan' },
   { label: 'Kurikulum Tiga Pilar', value: "Al-Qur'an, Diniyah & Umum", desc: 'Terintegrasi dan seimbang' },
   { label: 'Rasio Halaqah', value: '1 : 7 Siswa', desc: 'Pendampingan eksklusif & fokus' },
-  { label: 'Penerimaan', value: 'Baru & Pindahan', desc: 'Terbuka untuk calon santri' },
+  { label: 'Penerimaan', value: 'Baru & Pindahan', desc: 'Terbuka untuk calon murid' },
 ] as const;

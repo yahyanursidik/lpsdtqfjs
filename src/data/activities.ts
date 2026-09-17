@@ -8,7 +8,7 @@ export const activities: readonly ActivityItem[] = [
   {
     title: 'Berkuda',
     category: 'Sunnah',
-    description: 'Melatih keberanian, postur tubuh, keseimbangan motorik, dan kepekaan santri terhadap makhluk ciptaan Allah.',
+    description: 'Melatih keberanian, postur tubuh, keseimbangan motorik, dan kepekaan murid terhadap makhluk ciptaan Allah.',
   },
   {
     title: 'Memanah',
@@ -43,6 +43,6 @@ export const activities: readonly ActivityItem[] = [
   {
     title: 'Pekan Kreativitas & Majalah Dinding',
     category: 'Kemandirian',
-    description: 'Wadah bagi santri untuk menampilkan karya tulis, kaligrafi, prakarya, dan adab presentasi di hadapan umum.',
+    description: 'Wadah bagi murid untuk menampilkan karya tulis, kaligrafi, prakarya, dan adab presentasi di hadapan umum.',
   },
 ] as const;
