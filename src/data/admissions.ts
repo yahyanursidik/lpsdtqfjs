@@ -13,7 +13,7 @@ export const admissionWaves: readonly AdmissionWave[] = [
   },
   {
     name: 'Gelombang 2',
-    note: 'Dibuka jika kuota siswa baru belum terpenuhi',
+    note: 'Dibuka jika kuota murid baru belum terpenuhi',
     dates: [
       ['Pendaftaran', '26 Januari – 20 Maret 2027'],
       ['Seleksi & Wawancara', '22 Maret 2027'],
@@ -25,11 +25,11 @@ export const admissionWaves: readonly AdmissionWave[] = [
 
 export const admissionRequirements: readonly string[] = [
   'Usia minimal 6 tahun pada awal tahun ajaran baru (atau telah memiliki kesiapan belajar tingkat SD).',
-  'Mengisi formulir pendaftaran PPDB SDTQ Fajar Sunnah.',
+  'Mengisi formulir pendaftaran SPMB SDTQ Fajar Sunnah.',
   'Mengisi lembar surat pernyataan kesediaan tata tertib orang tua / wali santri.',
   'Fotokopi Akta Kelahiran calon santri (2 lembar).',
   'Fotokopi Kartu Keluarga (KK) resmi (2 lembar).',
   'Fotokopi KTP ayah dan ibu / wali (masing-masing 2 lembar).',
   'Pas foto berwarna ukuran 3×4 cm (4 lembar).',
-  'Surat keterangan lulus / ijazah TK (untuk santri baru kelas 1) atau rapor sekolah asal & surat pindah (untuk santri pindahan).',
+  'Surat keterangan lulus / ijazah TK (untuk murid baru kelas 1) atau rapor sekolah asal & surat pindah (untuk santri pindahan).',
 ] as const;

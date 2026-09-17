@@ -27,7 +27,7 @@ export const school = {
 
 // Helper untuk URL WhatsApp dengan pesan spesifik
 export function getWhatsAppUrl(customMessage?: string): string {
-  const defaultMessage = `Bismillah, halo Admin PPDB SDTQ Fajar Sunnah. Saya ingin menanyakan informasi pendaftaran siswa baru untuk tahun ajaran ${school.academicYear}.`;
+  const defaultMessage = `Bismillah, halo Admin SPMB SDTQ Fajar Sunnah. Saya ingin menanyakan informasi pendaftaran murid baru untuk tahun ajaran ${school.academicYear}.`;
   const text = encodeURIComponent(customMessage || defaultMessage);
   return `https://wa.me/${school.contact.whatsapp}?text=${text}`;
 }
@@ -37,6 +37,6 @@ export function getRegistrationUrl(): string {
     return school.contact.registrationUrl;
   }
   // Fallback aman ke WhatsApp pendaftaran resmi jika tautan form online belum diverifikasi
-  const msg = `Bismillah, halo Admin PPDB SDTQ Fajar Sunnah. Saya ingin mendaftar PPDB ${school.academicYear} untuk calon peserta didik baru. Mohon bantuan formulir pendaftarannya.`;
+  const msg = `Bismillah, halo Admin SPMB SDTQ Fajar Sunnah. Saya ingin mendaftar SPMB ${school.academicYear} untuk calon murid baru. Mohon bantuan formulir pendaftarannya.`;
   return getWhatsAppUrl(msg);
 }

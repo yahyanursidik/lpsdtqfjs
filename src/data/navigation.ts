@@ -6,7 +6,7 @@ export const mainNavItems: NavItem[] = [
   { label: 'Program Al-Qur\'an', href: '#tahfidz' },
   { label: 'Kurikulum', href: '#kurikulum' },
   { label: 'Keunggulan', href: '#keunggulan' },
-  { label: 'PPDB', href: '#ppdb' },
+  { label: 'SPMB', href: '#spmb' },
   { label: 'Biaya', href: '#biaya' },
   { label: 'FAQ', href: '#faq' },
 ];

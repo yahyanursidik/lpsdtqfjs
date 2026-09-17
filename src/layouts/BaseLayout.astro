@@ -13,8 +13,8 @@ interface Props {
 }
 
 const {
-  title = `${school.name} — ${school.tagline} | PPDB ${school.academicYear}`,
-  description = `${school.fullName} di Lembang, Jawa Barat. Menerima pendaftaran peserta didik baru & pindahan dengan program unggulan Tahfidz 3–6 Juz, kurikulum terintegrasi, dan rasio halaqah 1:7.`,
+  title = `${school.name} — ${school.tagline} | SPMB ${school.academicYear}`,
+  description = `${school.fullName} di Lembang, Jawa Barat. Menerima pendaftaran murid baru & pindahan dengan program unggulan Tahfidz 3–6 Juz, kurikulum terintegrasi, dan rasio halaqah 1:7.`,
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, school.contact.website).href;

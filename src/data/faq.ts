@@ -6,8 +6,8 @@ export const faqs: readonly FAQItem[] = [
     answer: "Program tahfidz menargetkan capaian hafalan 3 hingga 6 juz selama masa pendidikan enam tahun. Target hafalan ini didukung metode tahsin, pembetulan makharijul huruf, kaidah tajwid dasar, serta muroja'ah rutin dengan pendekatan personalized learning.",
   },
   {
-    question: 'Apakah SDTQ Fajar Sunnah menerima siswa pindahan?',
-    answer: 'Ya. SDTQ Fajar Sunnah membuka kesempatan pendaftaran bagi calon peserta didik baru jenjang kelas 1 maupun santri pindahan (mutasi) dari sekolah lain, selama kuota kelas dan hasil pemetaan akademik/tahfidz memenuhi kriteria.',
+    question: 'Apakah SDTQ Fajar Sunnah menerima murid pindahan?',
+    answer: 'Ya. SDTQ Fajar Sunnah membuka kesempatan pendaftaran bagi calon murid baru jenjang kelas 1 maupun santri pindahan (mutasi) dari sekolah lain, selama kuota kelas dan hasil pemetaan akademik/tahfidz memenuhi kriteria.',
   },
   {
     question: 'Bagaimana perpaduan kurikulum di SDTQ Fajar Sunnah?',
@@ -26,8 +26,8 @@ export const faqs: readonly FAQItem[] = [
     answer: 'Kampus SDTQ Fajar Sunnah berlokasi di Komplek BTN Pusdikajen, Jl. Wira No. A13, Desa Kayuambon, Kecamatan Lembang, Kabupaten Bandung Barat. Lokasi berada di kawasan berhawa sejuk, tenang, dan jauh dari kebisingan jalan raya utama, sangat ideal untuk ketenangan menghafal Al-Qur\'an.',
   },
   {
-    question: 'Bagaimana alur pendaftaran dan verifikasi berkas PPDB?',
-    answer: 'Orang tua dapat menekan tombol "Daftar PPDB" atau menghubungi nomor WhatsApp panitia untuk mendapatkan formulir pendaftaran, mengisi data calon santri dan orang tua, melengkapi berkas (Akta, KK, KTP, foto), kemudian mengikuti jadwal observasi kesiapan anak.',
+    question: 'Bagaimana alur pendaftaran dan verifikasi berkas SPMB?',
+    answer: 'Orang tua dapat menekan tombol "Daftar SPMB" atau menghubungi nomor WhatsApp panitia untuk mendapatkan formulir pendaftaran, mengisi data calon murid dan orang tua, melengkapi berkas (Akta, KK, KTP, foto), kemudian mengikuti jadwal observasi kesiapan anak.',
   },
   {
     question: 'Bagaimana cara orang tua memantau perkembangan hafalan santri?',

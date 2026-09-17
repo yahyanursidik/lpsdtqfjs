@@ -8,12 +8,13 @@ import SectionHeading from '../ui/SectionHeading.astro';
 const regUrl = getRegistrationUrl();
 ---
 
-<section class="section" id="ppdb" aria-labelledby="admissions-title">
+<section class="section" id="spmb" aria-labelledby="admissions-title">
+  <span id="ppdb" class="sr-only"></span>
   <Container>
     <SectionHeading
-      eyebrow={`Penerimaan Santri Baru & Pindahan ${school.academicYear}`}
-      title="Jadwal & Alur Timeline PPDB"
-      description="Pendaftaran terbuka untuk calon santri kelas 1 dan santri mutasi/pindahan. Pendaftaran gelombang 1 diprioritaskan untuk pemenuhan kuota utama."
+      eyebrow={`Sistem Penerimaan Murid Baru (SPMB) ${school.academicYear}`}
+      title="Jadwal & Alur Timeline SPMB"
+      description="Pendaftaran terbuka untuk calon murid kelas 1 dan santri mutasi/pindahan. Pendaftaran gelombang 1 diprioritaskan untuk pemenuhan kuota utama."
       align="center"
     />
 
@@ -48,7 +49,7 @@ const regUrl = getRegistrationUrl();
         Kuota belajar terbatas untuk menjaga efektivitas rasio halaqah tahfidz 1 : 7 santri.
       </p>
       <Button href={regUrl} variant="primary" external class="admissions-cta__btn">
-        Daftar PPDB Sekarang
+        Daftar SPMB Sekarang
       </Button>
     </div>
   </Container>
