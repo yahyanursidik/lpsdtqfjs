@@ -11,7 +11,7 @@ export const school = {
     whatsappDisplay: '0851 7968 1514',
     email: 'ppdb@fajarsunnah.id',
     instagramUrl: '', // Kosongkan bila belum terverifikasi, sesuai DATA_MODEL.md
-    registrationUrl: '', // Kosongkan bila belum terverifikasi, fallback ke WhatsApp pendaftaran
+    registrationUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSftrtAThJ_wM3BAVaWqgljldbhi14nd4xewQ47svSvD5Ht5yg/viewform?usp=sharing&ouid=112138208132391960503',
     website: 'https://fajarsunnah.id',
   },
 
