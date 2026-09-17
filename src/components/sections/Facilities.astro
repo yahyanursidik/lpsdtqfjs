@@ -1,0 +1,89 @@
+---
+import { facilities } from '../../data/facilities';
+import Container from '../ui/Container.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+---
+
+<section class="section section--soft" id="fasilitas" aria-labelledby="facilities-title">
+  <Container>
+    <SectionHeading
+      eyebrow="Sarana & Prasarana"
+      title="Fasilitas Penunjang Pendidikan"
+      description="Lingkungan belajar yang bersih, sejuk, dan kondusif di kawasan Lembang untuk menunjang konsentrasi menghafal Al-Qur'an dan kenyamanan santri."
+      align="center"
+    />
+
+    <div class="facilities-grid">
+      {facilities.map((item) => (
+        <div class="facility-card">
+          <div class="facility-card__dot" aria-hidden="true"></div>
+          <div class="facility-card__content">
+            <h3 class="facility-card__title">{item.title}</h3>
+            <p class="facility-card__detail">{item.detail}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<style>
+  .facilities-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .facilities-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .facilities-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  .facility-card {
+    background-color: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    box-shadow: var(--shadow-card);
+  }
+
+  .facility-card__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-yellow-500);
+    border: 2px solid var(--color-navy-950);
+    margin-top: 0.4rem;
+    flex-shrink: 0;
+  }
+
+  .facility-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .facility-card__title {
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-navy-950);
+  }
+
+  .facility-card__detail {
+    font-size: var(--text-sm);
+    color: var(--color-ink-light);
+    line-height: 1.55;
+  }
+</style>

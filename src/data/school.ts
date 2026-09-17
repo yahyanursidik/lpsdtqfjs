@@ -1,0 +1,42 @@
+export const school = {
+  name: 'SDTQ Fajar Sunnah',
+  shortName: 'Fajar Sunnah',
+  fullName: "Sekolah Dasar Tahfidzul Qur'an Fajar Sunnah",
+  academicYear: '2027/2028',
+  tagline: "Menghafal Al-Qur'an, Membangun Masa Depan",
+  subtagline: "Sekolah dasar Islam di Lembang yang mengintegrasikan pembelajaran Al-Qur'an, pendidikan keagamaan, kurikulum umum, serta pengembangan minat dan bakat anak.",
+
+  contact: {
+    whatsapp: '6285179681514',
+    whatsappDisplay: '0851 7968 1514',
+    email: 'ppdb@fajarsunnah.id',
+    instagramUrl: '', // Kosongkan bila belum terverifikasi, sesuai DATA_MODEL.md
+    registrationUrl: '', // Kosongkan bila belum terverifikasi, fallback ke WhatsApp pendaftaran
+    website: 'https://fajarsunnah.id',
+  },
+
+  address: {
+    line1: 'BTN Pusdikajen Jl. Wira No. A13',
+    village: 'Kayuambon',
+    district: 'Lembang',
+    region: 'Kabupaten Bandung Barat',
+    province: 'Jawa Barat',
+    mapsUrl: 'https://maps.google.com/?q=BTN+Pusdikajen+Jl.+Wira+No.+A13+Kayuambon+Lembang',
+  },
+} as const;
+
+// Helper untuk URL WhatsApp dengan pesan spesifik
+export function getWhatsAppUrl(customMessage?: string): string {
+  const defaultMessage = `Bismillah, halo Admin PPDB SDTQ Fajar Sunnah. Saya ingin menanyakan informasi pendaftaran siswa baru untuk tahun ajaran ${school.academicYear}.`;
+  const text = encodeURIComponent(customMessage || defaultMessage);
+  return `https://wa.me/${school.contact.whatsapp}?text=${text}`;
+}
+
+export function getRegistrationUrl(): string {
+  if (school.contact.registrationUrl) {
+    return school.contact.registrationUrl;
+  }
+  // Fallback aman ke WhatsApp pendaftaran resmi jika tautan form online belum diverifikasi
+  const msg = `Bismillah, halo Admin PPDB SDTQ Fajar Sunnah. Saya ingin mendaftar PPDB ${school.academicYear} untuk calon peserta didik baru. Mohon bantuan formulir pendaftarannya.`;
+  return getWhatsAppUrl(msg);
+}

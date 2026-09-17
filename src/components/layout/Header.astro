@@ -1,0 +1,187 @@
+---
+import { Image } from 'astro:assets';
+import logoImg from '../../assets/logo/logo-fajar-sunnah.png';
+import { mainNavItems } from '../../data/navigation';
+import { getRegistrationUrl, school } from '../../data/school';
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+
+const regUrl = getRegistrationUrl();
+---
+
+<header class="site-header" id="site-header">
+  <Container class="site-header__container">
+    <a href="#beranda" class="site-header__brand" aria-label={`${school.name} - Beranda`}>
+      <Image
+        src={logoImg}
+        alt={`Logo resmi ${school.name}`}
+        width={44}
+        height={44}
+        class="site-header__logo"
+        loading="eager"
+      />
+      <div class="site-header__titles">
+        <span class="site-header__name">{school.name}</span>
+        <span class="site-header__loc">Lembang, Jawa Barat</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="site-header__nav" aria-label="Navigasi Utama">
+      <ul class="site-header__menu">
+        {mainNavItems.map((item) => (
+          <li>
+            <a href={item.href} class="site-header__link">
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- Header Action Button -->
+    <div class="site-header__actions">
+      <Button href={regUrl} variant="primary" class="site-header__cta">
+        Daftar PPDB
+      </Button>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button
+        type="button"
+        class="site-header__mobile-toggle"
+        id="mobile-menu-toggle"
+        aria-label="Buka menu navigasi"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+      >
+        <span class="site-header__burger-bar"></span>
+        <span class="site-header__burger-bar"></span>
+        <span class="site-header__burger-bar"></span>
+      </button>
+    </div>
+  </Container>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--color-border);
+    transition: box-shadow 0.2s ease;
+  }
+
+  .site-header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    gap: 1.5rem;
+  }
+
+  .site-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .site-header__logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: contain;
+    background-color: #ffffff;
+  }
+
+  .site-header__titles {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+
+  .site-header__name {
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-navy-950);
+  }
+
+  .site-header__loc {
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+  }
+
+  .site-header__nav {
+    display: none;
+  }
+
+  .site-header__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 1.5rem;
+  }
+
+  .site-header__link {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-ink);
+    padding: 0.35rem 0.15rem;
+    position: relative;
+  }
+
+  .site-header__link:hover {
+    color: var(--color-navy-800);
+  }
+
+  .site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .site-header__cta {
+    display: none;
+  }
+
+  /* Hamburger Toggle */
+  .site-header__mobile-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .site-header__burger-bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: var(--color-navy-950);
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  @media (min-width: 992px) {
+    .site-header__nav {
+      display: block;
+    }
+
+    .site-header__cta {
+      display: inline-flex;
+    }
+
+    .site-header__mobile-toggle {
+      display: none;
+    }
+  }
+</style>

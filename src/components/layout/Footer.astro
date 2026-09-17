@@ -1,0 +1,242 @@
+---
+import { Image } from 'astro:assets';
+import logoImg from '../../assets/logo/logo-fajar-sunnah.png';
+import { mainNavItems } from '../../data/navigation';
+import { getRegistrationUrl, getWhatsAppUrl, school } from '../../data/school';
+import Container from '../ui/Container.astro';
+
+const currentYear = new Date().getFullYear();
+const waUrl = getWhatsAppUrl();
+const regUrl = getRegistrationUrl();
+---
+
+<footer class="site-footer">
+  <Container>
+    <div class="site-footer__grid">
+      <!-- Col 1: Brand & Tagline -->
+      <div class="site-footer__brand-col">
+        <div class="site-footer__brand">
+          <Image
+            src={logoImg}
+            alt={`Logo ${school.name}`}
+            width={52}
+            height={52}
+            class="site-footer__logo"
+          />
+          <div>
+            <h3 class="site-footer__name">{school.name}</h3>
+            <p class="site-footer__sub">{school.fullName}</p>
+          </div>
+        </div>
+        <p class="site-footer__tagline">
+          "{school.tagline}"
+        </p>
+        <p class="site-footer__desc">
+          Mendidik generasi Qur'ani yang kokoh dalam tauhid, berakhlak mulia, unggul dalam hafalan, dan siap menghadapi tantangan masa depan.
+        </p>
+      </div>
+
+      <!-- Col 2: Navigasi Cepat -->
+      <div class="site-footer__nav-col">
+        <h4 class="site-footer__heading">Navigasi Halaman</h4>
+        <ul class="site-footer__list">
+          {mainNavItems.map((item) => (
+            <li>
+              <a href={item.href} class="site-footer__link">
+                {item.label}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a href={regUrl} class="site-footer__link site-footer__link--highlight">
+              Daftar PPDB Online
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Informasi Kontak & Lokasi -->
+      <div class="site-footer__contact-col">
+        <h4 class="site-footer__heading">Sekretariat & Pendaftaran</h4>
+        <address class="site-footer__address">
+          <p class="site-footer__address-line">
+            <strong>Kampus SDTQ Fajar Sunnah</strong><br />
+            {school.address.line1}<br />
+            Desa {school.address.village}, Kec. {school.address.district}<br />
+            {school.address.region}, {school.address.province}
+          </p>
+        </address>
+
+        <div class="site-footer__contacts">
+          <p>
+            <span class="site-footer__contact-label">WhatsApp Admin:</span>
+            <a href={waUrl} target="_blank" rel="noopener noreferrer" class="site-footer__link">
+              {school.contact.whatsappDisplay}
+            </a>
+          </p>
+          <p>
+            <span class="site-footer__contact-label">Email Resmi:</span>
+            <a href={`mailto:${school.contact.email}`} class="site-footer__link">
+              {school.contact.email}
+            </a>
+          </p>
+          {school.contact.instagramUrl && (
+            <p>
+              <span class="site-footer__contact-label">Instagram:</span>
+              <a href={school.contact.instagramUrl} target="_blank" rel="noopener noreferrer" class="site-footer__link">
+                @sdtqfajarsunnah
+              </a>
+            </p>
+          )}
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="site-footer__bottom">
+      <p class="site-footer__copy">
+        &copy; {currentYear} {school.name}. Seluruh hak cipta dilindungi undang-undang.
+      </p>
+      <p class="site-footer__region">
+        Lembang, Kabupaten Bandung Barat, Jawa Barat.
+      </p>
+    </div>
+  </Container>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--color-navy-950);
+    color: #ffffff;
+    padding-top: 4.5rem;
+    padding-bottom: 2.5rem;
+    border-top: 3px solid var(--color-yellow-500);
+  }
+
+  .site-footer__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 3.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .site-footer__grid {
+      grid-template-columns: 1.4fr 1fr 1.2fr;
+      gap: 2.5rem;
+    }
+  }
+
+  .site-footer__brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .site-footer__logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    padding: 2px;
+  }
+
+  .site-footer__name {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .site-footer__sub {
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .site-footer__tagline {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-yellow-400);
+    margin-bottom: 0.75rem;
+  }
+
+  .site-footer__desc {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+    max-width: 420px;
+  }
+
+  .site-footer__heading {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-yellow-400);
+    margin-bottom: 1.25rem;
+  }
+
+  .site-footer__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .site-footer__link {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.85);
+    transition: color 0.15s ease;
+  }
+
+  .site-footer__link:hover {
+    color: var(--color-yellow-400);
+  }
+
+  .site-footer__link--highlight {
+    color: var(--color-yellow-400);
+    font-weight: 600;
+  }
+
+  .site-footer__address {
+    font-style: normal;
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .site-footer__address strong {
+    color: #ffffff;
+  }
+
+  .site-footer__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: var(--text-sm);
+  }
+
+  .site-footer__contact-label {
+    color: rgba(255, 255, 255, 0.6);
+    margin-right: 0.35rem;
+  }
+
+  .site-footer__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  @media (min-width: 640px) {
+    .site-footer__bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+</style>

@@ -1,0 +1,92 @@
+---
+import { highlights } from '../../data/programs';
+import Container from '../ui/Container.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+---
+
+<section class="section" id="keunggulan" aria-labelledby="highlights-title">
+  <Container>
+    <SectionHeading
+      eyebrow="Mengapa Memilih Kami"
+      title="Keunggulan Pembelajaran di SDTQ Fajar Sunnah"
+      description="Standar pendidikan terpadu yang dirancang untuk kenyamanan, kedisiplinan, dan tumbuh kembang santri secara optimal."
+      align="center"
+    />
+
+    <div class="highlights-grid">
+      {highlights.map((item, idx) => (
+        <div class="highlight-card">
+          <div class="highlight-card__badge">0{idx + 1}</div>
+          <h3 class="highlight-card__title">{item.title}</h3>
+          <p class="highlight-card__desc">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<style>
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .highlights-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .highlights-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  .highlight-card {
+    background-color: var(--color-bg-soft);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    position: relative;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .highlight-card:hover {
+    border-color: var(--color-navy-800);
+    transform: translateY(-2px);
+  }
+
+  .highlight-card__badge {
+    font-size: var(--text-xs);
+    font-weight: 800;
+    color: var(--color-navy-800);
+    background-color: #ffffff;
+    border: 1px solid var(--color-border);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+  }
+
+  .highlight-card__title {
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-navy-950);
+    line-height: 1.35;
+  }
+
+  .highlight-card__desc {
+    font-size: var(--text-sm);
+    color: var(--color-ink-light);
+    line-height: 1.6;
+  }
+</style>

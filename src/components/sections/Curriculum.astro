@@ -1,0 +1,108 @@
+---
+import { curricula } from '../../data/programs';
+import Container from '../ui/Container.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+---
+
+<section class="section section--soft" id="kurikulum" aria-labelledby="curriculum-title">
+  <Container>
+    <SectionHeading
+      eyebrow="Struktur Pembelajaran"
+      title="Integrasi Tiga Pilar Kurikulum"
+      description="Porsi pendidikan keagamaan yang dominan diselaraskan dengan standar akademik nasional, menghadirkan bekal ilmu syar'i dan keterampilan hidup yang utuh."
+      align="center"
+    />
+
+    <!-- Three clean editorial columns, NOT 15 scattered cards -->
+    <div class="curriculum-columns">
+      {curricula.map((col) => (
+        <div class="curriculum-col">
+          <div class="curriculum-col__header">
+            <h3 class="curriculum-col__title">{col.title}</h3>
+            {col.description && (
+              <p class="curriculum-col__desc">{col.description}</p>
+            )}
+          </div>
+
+          <ul class="curriculum-col__list">
+            {col.items.map((item) => (
+              <li class="curriculum-col__item">
+                <svg class="curriculum-col__icon" viewBox="0 0 20 20" width="16" height="16" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<style>
+  .curriculum-columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .curriculum-columns {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+  }
+
+  .curriculum-col {
+    background-color: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-card);
+  }
+
+  .curriculum-col__header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .curriculum-col__title {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-navy-950);
+    margin-bottom: 0.5rem;
+  }
+
+  .curriculum-col__desc {
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+    line-height: 1.5;
+  }
+
+  .curriculum-col__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0;
+  }
+
+  .curriculum-col__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-size: var(--text-sm);
+    color: var(--color-ink);
+    line-height: 1.45;
+  }
+
+  .curriculum-col__icon {
+    color: var(--color-navy-800);
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+  }
+</style>

@@ -1,0 +1,61 @@
+---
+import About from '../components/sections/About.astro';
+import Activities from '../components/sections/Activities.astro';
+import Admissions from '../components/sections/Admissions.astro';
+import Curriculum from '../components/sections/Curriculum.astro';
+import Facilities from '../components/sections/Facilities.astro';
+import FAQ from '../components/sections/FAQ.astro';
+import Fees from '../components/sections/Fees.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+import GraduateProfile from '../components/sections/GraduateProfile.astro';
+import Hero from '../components/sections/Hero.astro';
+import Highlights from '../components/sections/Highlights.astro';
+import QuickFacts from '../components/sections/QuickFacts.astro';
+import QuranProgram from '../components/sections/QuranProgram.astro';
+import Requirements from '../components/sections/Requirements.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+  <!-- 1. Hero Section -->
+  <Hero />
+
+  <!-- 2. Quick Facts -->
+  <QuickFacts />
+
+  <!-- 3. Tentang Sekolah & 3 Pilar -->
+  <About />
+
+  <!-- 4. Program Al-Qur'an (Anchor 3-6 Juz) -->
+  <QuranProgram />
+
+  <!-- 5. Tiga Pilar Kurikulum -->
+  <Curriculum />
+
+  <!-- 6. Keunggulan & Program Unggulan -->
+  <Highlights />
+
+  <!-- 7. Profil Capaian Lulusan -->
+  <GraduateProfile />
+
+  <!-- 8. Aktivitas & Ekstrakurikuler Sunnah -->
+  <Activities />
+
+  <!-- 9. Sarana & Prasarana Fasilitas -->
+  <Facilities />
+
+  <!-- 10. Jadwal & Timeline PPDB -->
+  <Admissions />
+
+  <!-- 11. Persyaratan Pendaftaran -->
+  <Requirements />
+
+  <!-- 12. Rincian Biaya Transparan -->
+  <Fees />
+
+  <!-- 13. Tanya Jawab (FAQ Accordion) -->
+  <FAQ />
+
+  <!-- 14. Final Call to Action -->
+  <FinalCTA />
+</BaseLayout>

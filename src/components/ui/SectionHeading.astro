@@ -1,0 +1,88 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  align?: 'left' | 'center';
+  theme?: 'light' | 'navy';
+  class?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  align = 'left',
+  theme = 'light',
+  class: className = '',
+} = Astro.props;
+---
+
+<div class:list={['section-heading', `section-heading--${align}`, `section-heading--${theme}`, className]}>
+  {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+  <h2 class="title">{title}</h2>
+  {description && <p class="description">{description}</p>}
+</div>
+
+<style>
+  .section-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .section-heading--center {
+    text-align: center;
+    align-items: center;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-heading--left {
+    text-align: left;
+    align-items: flex-start;
+    max-width: 760px;
+  }
+
+  /* Anti-slop: Plain textual eyebrow, no pill badges, no pulsing dots */
+  .eyebrow {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-navy-800);
+  }
+
+  .section-heading--navy .eyebrow {
+    color: var(--color-yellow-400);
+  }
+
+  .title {
+    font-size: var(--text-3xl);
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    color: var(--color-navy-950);
+  }
+
+  .section-heading--navy .title {
+    color: #ffffff;
+  }
+
+  .description {
+    font-size: var(--text-base);
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+
+  .section-heading--navy .description {
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  @media (min-width: 768px) {
+    .section-heading {
+      margin-bottom: 3.5rem;
+    }
+  }
+</style>

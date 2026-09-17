@@ -1,0 +1,62 @@
+/* Layout utilities */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: var(--container-text);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* Accessibility screen-reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Section Wrapper */
+.section {
+  padding-top: var(--section-space-y);
+  padding-bottom: var(--section-space-y);
+  position: relative;
+}
+
+.section--soft {
+  background-color: var(--color-bg-soft);
+  border-top: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.section--navy {
+  background-color: var(--color-navy-950);
+  color: #ffffff;
+}
+
+.section--navy h2,
+.section--navy h3,
+.section--navy p {
+  color: #ffffff;
+}

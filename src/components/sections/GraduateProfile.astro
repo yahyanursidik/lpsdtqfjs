@@ -1,0 +1,109 @@
+---
+import { graduateProfiles } from '../../data/programs';
+import Container from '../ui/Container.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+---
+
+<section class="section section--soft" id="profil-lulusan" aria-labelledby="profile-title">
+  <Container>
+    <div class="graduate-profile__layout">
+      <div class="graduate-profile__intro">
+        <SectionHeading
+          eyebrow="Standar Kompetensi"
+          title="Profil Karakter & Capaian Lulusan"
+          description="Target hasil pendidikan selama 6 tahun yang dipersiapkan untuk melahirkan generasi berilmu, bertauhid kokoh, dan berakhlak mulia."
+          align="left"
+        />
+        <div class="graduate-profile__note">
+          <p>
+            Setiap lulusan SDTQ Fajar Sunnah diharapkan tidak hanya menguasai capaian akademik, namun memiliki keterikatan hati dengan Al-Qur'an dan kesantunan akhlak kepada orang tua serta sesama.
+          </p>
+        </div>
+      </div>
+
+      <div class="graduate-profile__list-wrapper">
+        <ul class="graduate-profile__list">
+          {graduateProfiles.map((item) => (
+            <li class="graduate-profile__item">
+              <span class="graduate-profile__check" aria-hidden="true">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span class="graduate-profile__text">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .graduate-profile__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (min-width: 992px) {
+    .graduate-profile__layout {
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+    }
+  }
+
+  .graduate-profile__note {
+    background-color: #ffffff;
+    border-left: 4px solid var(--color-navy-800);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    box-shadow: var(--shadow-card);
+  }
+
+  .graduate-profile__note p {
+    font-size: var(--text-sm);
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .graduate-profile__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .graduate-profile__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.15rem 1.25rem;
+    background-color: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-card);
+  }
+
+  .graduate-profile__check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--color-navy-950);
+    color: var(--color-yellow-400);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .graduate-profile__text {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.5;
+  }
+</style>

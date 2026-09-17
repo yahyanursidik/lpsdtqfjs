@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <circle cx="32" cy="32" r="30" fill="#ffffff" stroke="#101828" stroke-width="2"/>
+  <!-- Sunrise / Fajar Arc in Yellow -->
+  <path d="M22 28 C22 20 42 20 42 28 Z" fill="#ffd91a"/>
+  <!-- Isometric Book structure -->
+  <polygon points="32,26 44,32 32,38 20,32" fill="#ffe34b"/>
+  <polygon points="20,32 32,38 32,48 20,42" fill="#101828"/>
+  <polygon points="44,32 32,38 32,48 44,42" fill="#071632"/>
+</svg>

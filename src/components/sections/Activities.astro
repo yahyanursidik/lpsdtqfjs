@@ -1,0 +1,93 @@
+---
+import { activities } from '../../data/activities';
+import Container from '../ui/Container.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+---
+
+<section class="section" id="kegiatan" aria-labelledby="activities-title">
+  <Container>
+    <SectionHeading
+      eyebrow="Aktivitas & Ekstrakurikuler"
+      title="Olahraga Sunnah & Pengembangan Minat Bakat"
+      description="Menjaga keseimbangan antara ketajaman hafalan Al-Qur'an dan kebugaran jasmani santri melalui ragam kegiatan fisik dan edukasi luar kelas."
+      align="center"
+    />
+
+    <div class="activities-grid">
+      {activities.map((act) => (
+        <div class="activity-card">
+          <div class="activity-card__header">
+            <span class="activity-card__category">{act.category}</span>
+            <h3 class="activity-card__title">{act.title}</h3>
+          </div>
+          <p class="activity-card__desc">{act.description}</p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<style>
+  .activities-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .activities-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .activities-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  .activity-card {
+    background-color: var(--color-bg-soft);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .activity-card:hover {
+    border-color: var(--color-navy-800);
+    transform: translateY(-2px);
+  }
+
+  .activity-card__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .activity-card__category {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-navy-800);
+  }
+
+  .activity-card__title {
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-navy-950);
+  }
+
+  .activity-card__desc {
+    font-size: var(--text-sm);
+    color: var(--color-ink-light);
+    line-height: 1.55;
+  }
+</style>

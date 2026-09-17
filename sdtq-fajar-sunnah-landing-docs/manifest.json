@@ -1,0 +1,24 @@
+{
+  "project": "SDTQ Fajar Sunnah PPDB Landing Page",
+  "generated": "2026-09-17",
+  "astro_reference_version": "7.3.3",
+  "anti_slop_reference_release": "v3.2.9",
+  "files": [
+    "AGENTS.md",
+    "ANTI_SLOP_GUIDE.md",
+    "ARCHITECTURE.md",
+    "COMPONENTS.md",
+    "CONTENT_MAP.md",
+    "DATA_MODEL.md",
+    "DESIGN.md",
+    "DESIGN_SYSTEM.md",
+    "IMPLEMENTATION_PLAN.md",
+    "MASTER_PROMPT.md",
+    "PROJECT_BRIEF.md",
+    "QA_CHECKLIST.md",
+    "README.md",
+    "SEO_PERFORMANCE.md",
+    "TECH_STACK.md",
+    "VIBE_CODING_INSTRUCTIONS.md"
+  ]
+}

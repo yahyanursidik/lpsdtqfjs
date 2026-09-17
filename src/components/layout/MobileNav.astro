@@ -1,0 +1,215 @@
+---
+import { mainNavItems } from '../../data/navigation';
+import { getRegistrationUrl, getWhatsAppUrl, school } from '../../data/school';
+import Button from '../ui/Button.astro';
+
+const regUrl = getRegistrationUrl();
+const waUrl = getWhatsAppUrl();
+---
+
+<div
+  id="mobile-nav"
+  class="mobile-nav"
+  aria-hidden="true"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Menu Navigasi Mobile"
+>
+  <div class="mobile-nav__backdrop" id="mobile-nav-backdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__header">
+      <div class="mobile-nav__brand">
+        <span class="mobile-nav__title">{school.name}</span>
+        <span class="mobile-nav__tagline">Lembang, Jawa Barat</span>
+      </div>
+      <button
+        type="button"
+        id="mobile-nav-close"
+        class="mobile-nav__close"
+        aria-label="Tutup menu navigasi"
+      >
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="mobile-nav__menu">
+      <ul>
+        {mainNavItems.map((item) => (
+          <li>
+            <a href={item.href} class="mobile-nav__link js-mobile-link">
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="mobile-nav__footer">
+      <Button href={regUrl} variant="primary" class="mobile-nav__btn">
+        Daftar PPDB Sekarang
+      </Button>
+      <Button href={waUrl} variant="outline" external class="mobile-nav__btn">
+        Tanya via WhatsApp
+      </Button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .mobile-nav {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    display: none;
+  }
+
+  .mobile-nav[aria-hidden="false"] {
+    display: block;
+  }
+
+  .mobile-nav__backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(7, 22, 50, 0.45);
+  }
+
+  .mobile-nav__drawer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 85%;
+    max-width: 340px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    box-shadow: -4px 0 24px rgba(7, 22, 50, 0.15);
+    overflow-y: auto;
+  }
+
+  .mobile-nav__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav__brand {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-nav__title {
+    font-weight: 700;
+    font-size: var(--text-base);
+    color: var(--color-navy-950);
+  }
+
+  .mobile-nav__tagline {
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+  }
+
+  .mobile-nav__close {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-navy-950);
+    cursor: pointer;
+  }
+
+  .mobile-nav__menu {
+    margin-top: 1.25rem;
+    flex: 1;
+  }
+
+  .mobile-nav__menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .mobile-nav__link {
+    display: block;
+    padding: 0.75rem 0.5rem;
+    font-weight: 600;
+    font-size: var(--text-base);
+    color: var(--color-navy-950);
+    border-radius: var(--radius-sm);
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .mobile-nav__link:hover {
+    background-color: var(--color-bg-soft);
+    color: var(--color-navy-800);
+  }
+
+  .mobile-nav__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .mobile-nav__btn {
+    width: 100%;
+  }
+</style>
+
+<script>
+  function setupMobileNav() {
+    const toggleBtn = document.getElementById('mobile-menu-toggle');
+    const nav = document.getElementById('mobile-nav');
+    const closeBtn = document.getElementById('mobile-nav-close');
+    const backdrop = document.getElementById('mobile-nav-backdrop');
+    const navLinks = document.querySelectorAll('.js-mobile-link');
+
+    if (!toggleBtn || !nav) return;
+
+    function openNav() {
+      nav?.setAttribute('aria-hidden', 'false');
+      toggleBtn?.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      closeBtn?.focus();
+    }
+
+    function closeNav() {
+      nav?.setAttribute('aria-hidden', 'true');
+      toggleBtn?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      toggleBtn?.focus();
+    }
+
+    toggleBtn.addEventListener('click', openNav);
+    closeBtn?.addEventListener('click', closeNav);
+    backdrop?.addEventListener('click', closeNav);
+
+    navLinks.forEach((link) => {
+      link.addEventListener('click', closeNav);
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.getAttribute('aria-hidden') === 'false') {
+        closeNav();
+      }
+    });
+  }
+
+  // Run on initial load & view transitions if any
+  document.addEventListener('DOMContentLoaded', setupMobileNav);
+  setupMobileNav();
+</script>

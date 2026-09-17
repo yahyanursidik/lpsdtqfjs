@@ -1,0 +1,122 @@
+---
+import Container from '../ui/Container.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+
+const pillars = [
+  {
+    num: '01',
+    title: 'Tauhid & Karakter Islami',
+    desc: 'Menanamkan aqidah ahlussunnah yang murni serta pembiasaan adab dan akhlakul karimah dalam setiap aktivitas harian santri di sekolah.',
+  },
+  {
+    num: '02',
+    title: "Al-Qur'an & Sunnah",
+    desc: 'Menjadikan hafalan Al-Qur\'an dengan makhraj yang benar, tajwid yang tepat, dan pemahaman sunnah nabi sebagai inti kurikulum.',
+  },
+  {
+    num: '03',
+    title: 'Akademik & Soft Skills',
+    desc: 'Memenuhi standar kurikulum nasional untuk penguasaan literasi, numerasi, sains, serta kebugaran fisik melalui olahraga sunnah.',
+  },
+];
+---
+
+<section class="section section--soft" id="tentang" aria-labelledby="about-title">
+  <Container>
+    <div class="about__grid">
+      <div class="about__intro">
+        <SectionHeading
+          eyebrow="Tentang Sekolah"
+          title="Mendidik Generasi Pecinta Al-Qur'an dan Berakhlak Mulia"
+          align="left"
+        />
+        <p class="about__lead">
+          <strong>SDTQ Fajar Sunnah</strong> adalah lembaga pendidikan tingkat dasar Islam yang berlokasi di Lembang, Kabupaten Bandung Barat. Kami hadir sebagai ikhtiar mendampingi para orang tua dalam membentuk anak-anak yang memiliki pondasi keimanan yang kokoh, hafalan Al-Qur'an yang mutqin, serta kesiapan akademik yang unggul.
+        </p>
+        <p class="about__body">
+          Dengan suasana belajar yang asri dan rasio halaqah yang kecil (1 guru membina 7 santri), setiap anak mendapatkan perhatian personal yang memadai untuk tumbuh sesuai potensi dan fitrahnya.
+        </p>
+      </div>
+
+      <div class="about__pillars">
+        {pillars.map((item) => (
+          <div class="about__pillar-card">
+            <span class="about__pillar-num">{item.num}</span>
+            <div class="about__pillar-content">
+              <h3 class="about__pillar-title">{item.title}</h3>
+              <p class="about__pillar-desc">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .about__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 992px) {
+    .about__grid {
+      grid-template-columns: 1.1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+  }
+
+  .about__lead {
+    font-size: var(--text-lg);
+    line-height: 1.65;
+    color: var(--color-ink);
+    margin-bottom: 1.25rem;
+  }
+
+  .about__body {
+    font-size: var(--text-base);
+    color: var(--color-ink-light);
+    line-height: 1.65;
+  }
+
+  .about__pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .about__pillar-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+  }
+
+  .about__pillar-num {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    color: var(--color-navy-800);
+    line-height: 1;
+    padding-top: 0.2rem;
+    flex-shrink: 0;
+  }
+
+  .about__pillar-title {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-navy-950);
+    margin-bottom: 0.4rem;
+  }
+
+  .about__pillar-desc {
+    font-size: var(--text-sm);
+    color: var(--color-ink-light);
+    line-height: 1.55;
+  }
+</style>

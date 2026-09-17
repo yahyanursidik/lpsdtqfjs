@@ -1,0 +1,100 @@
+---
+import Footer from '../components/layout/Footer.astro';
+import Header from '../components/layout/Header.astro';
+import MobileNav from '../components/layout/MobileNav.astro';
+import WhatsAppFloating from '../components/ui/WhatsAppFloating.astro';
+import { school } from '../data/school';
+import '../styles/global.css';
+import '../styles/utilities.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${school.name} — ${school.tagline} | PPDB ${school.academicYear}`,
+  description = `${school.fullName} di Lembang, Jawa Barat. Menerima pendaftaran peserta didik baru & pindahan dengan program unggulan Tahfidz 3–6 Juz, kurikulum terintegrasi, dan rasio halaqah 1:7.`,
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, school.contact.website).href;
+const ogImageUrl = `${school.contact.website}/logo-fajar-sunnah.png`;
+
+// Structured Data (Schema.org JSON-LD)
+const schemaOrg = {
+  '@context': 'https://schema.org',
+  '@type': 'EducationalOrganization',
+  name: school.name,
+  legalName: school.fullName,
+  url: school.contact.website,
+  logo: ogImageUrl,
+  description: description,
+  telephone: `+${school.contact.whatsapp}`,
+  email: school.contact.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: school.address.line1,
+    addressLocality: school.address.district,
+    addressRegion: school.address.region,
+    addressCountry: 'ID',
+  },
+  sameAs: school.contact.instagramUrl ? [school.contact.instagramUrl] : [],
+};
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/logo-fajar-sunnah.png" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content={school.name} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Fonts (Plus Jakarta Sans via CDN or System fallback) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- JSON-LD Structured Data -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+  </head>
+  <body>
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-link">Loncat ke konten utama</a>
+
+    <Header />
+    <MobileNav />
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <Footer />
+    <WhatsAppFloating />
+  </body>
+</html>
