@@ -7,8 +7,8 @@ export const school = {
   subtagline: "Sekolah dasar Islam di Lembang yang mengintegrasikan pembelajaran Al-Qur'an, pendidikan keagamaan, kurikulum umum, serta pengembangan minat dan bakat anak.",
 
   contact: {
-    whatsapp: '6285179681514',
-    whatsappDisplay: '0851 7968 1514',
+    whatsapp: '6285171051514',
+    whatsappDisplay: '+62 851-7105-1514',
     email: 'ppdb@fajarsunnah.id',
     instagramUrl: '', // Kosongkan bila belum terverifikasi, sesuai DATA_MODEL.md
     registrationUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSftrtAThJ_wM3BAVaWqgljldbhi14nd4xewQ47svSvD5Ht5yg/viewform?usp=sharing&ouid=112138208132391960503',

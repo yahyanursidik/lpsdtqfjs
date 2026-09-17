@@ -1,7 +1,7 @@
 ---
 interface Props {
   href: string;
-  variant?: 'primary' | 'secondary' | 'outline' | 'yellow';
+  variant?: 'primary' | 'secondary' | 'outline' | 'outline-white' | 'yellow';
   external?: boolean;
   ariaLabel?: string;
   class?: string;
@@ -81,6 +81,18 @@ const relAttr = external ? 'noopener noreferrer' : undefined;
   .btn--outline:hover {
     background-color: var(--color-bg-soft);
     border-color: var(--color-navy-800);
+  }
+
+  .btn--outline-white {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.45);
+  }
+
+  .btn--outline-white:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: #ffffff;
+    color: #ffffff;
   }
 
   .btn--yellow {
