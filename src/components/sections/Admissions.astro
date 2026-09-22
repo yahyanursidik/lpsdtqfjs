@@ -1,6 +1,7 @@
 ---
 import { admissionWaves } from '../../data/admissions';
 import { getRegistrationUrl, school } from '../../data/school';
+import { admissionVideos } from '../../data/videos';
 import Button from '../ui/Button.astro';
 import Container from '../ui/Container.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
@@ -13,10 +14,25 @@ const regUrl = getRegistrationUrl();
   <Container>
     <SectionHeading
       eyebrow={`Sistem Penerimaan Murid Baru (SPMB) ${school.academicYear}`}
-      title="Jadwal & Alur Timeline SPMB"
+      title="Informasi, Jadwal & Alur SPMB"
       description="Pendaftaran terbuka untuk calon murid kelas 1 dan murid mutasi/pindahan. Pendaftaran gelombang 1 diprioritaskan untuk pemenuhan kuota utama."
       align="center"
     />
+
+    <div class="admissions-videos" aria-label="Video informasi SPMB">
+      {admissionVideos.map((video) => (
+        <figure class="admissions-video">
+          <video class="admissions-video__player" controls preload="metadata" playsinline>
+            <source src={video.src} type="video/mp4" />
+            Browser Anda belum mendukung pemutaran video.
+          </video>
+          <figcaption class="admissions-video__caption">
+            <h3>{video.title}</h3>
+            <p>{video.description}</p>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
 
     <div class="admissions-waves">
       {admissionWaves.map((wave, idx) => (
@@ -56,6 +72,53 @@ const regUrl = getRegistrationUrl();
 </section>
 
 <style>
+  .admissions-videos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 960px;
+    margin: 0 auto 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .admissions-videos {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .admissions-video {
+    margin: 0;
+  }
+
+  .admissions-video__player {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    max-height: 34rem;
+    margin: 0 auto;
+    background-color: var(--color-navy-950);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+  }
+
+  .admissions-video__caption {
+    max-width: 34rem;
+    margin: 1rem auto 0;
+  }
+
+  .admissions-video__caption h3 {
+    font-size: var(--text-lg);
+    font-weight: 750;
+    color: var(--color-navy-950);
+  }
+
+  .admissions-video__caption p {
+    margin-top: 0.4rem;
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    color: var(--color-muted);
+  }
+
   .admissions-waves {
     display: grid;
     grid-template-columns: 1fr;
